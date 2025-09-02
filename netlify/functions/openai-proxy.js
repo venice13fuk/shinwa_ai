@@ -1,10 +1,8 @@
-// netlify/functions/openai-proxy.js
 exports.handler = async (event) => {
   try {
     if (event.httpMethod !== 'POST') {
       return { statusCode: 405, body: 'Method Not Allowed' };
     }
-
     const { model, temperature, system, user } = JSON.parse(event.body || '{}');
 
     const r = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -27,14 +25,11 @@ exports.handler = async (event) => {
       const txt = await r.text();
       return { statusCode: r.status, body: txt };
     }
-
-    const data = await r.json();
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    };
+    const json = await r.json();
+    const content = json.choices?.[0]?.message?.content || '';
+    return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) };
   } catch (e) {
-    return { statusCode: 500, body: String(e) };
+    return { statusCode: 500, body: JSON.stringify({ error: String(e) }) };
   }
 };
+
