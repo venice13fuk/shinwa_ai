@@ -1,0 +1,11 @@
+body { font-family: 'Noto Sans JP', sans-serif; background-color:#f7fafc; }
+.page{ display:none; } .page.active{ display:block; }
+.loading-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.6); display:flex; justify-content:center; align-items:center; z-index:9999; }
+.hidden{ display:none !important; }
+.spinner{ border:8px solid #f3f3f3; border-top:8px solid #4A90E2; border-radius:50%; width:60px; height:60px; animation: spin 1s linear infinite; }
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.toast{ position:fixed; left:50%; bottom:20px; transform:translateX(-50%); background:#2d3748; color:#fff; padding:10px 20px; border-radius:8px; z-index:10000; opacity:0; transition:opacity .5s,bottom .5s; }
+.toast.show{ opacity:1; bottom:30px; }
+.print-mode .proposal-document{ box-shadow:none !important; border-radius:0 !important; }
+.print-mode #proposal-document{ width:794px; margin:0 auto; background:#fff; }
+.print-mode .loading-overlay{ display:none !important; }
