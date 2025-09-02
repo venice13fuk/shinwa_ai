@@ -1,11 +1,32 @@
-body { font-family: 'Noto Sans JP', sans-serif; background-color:#f7fafc; }
+body { font-family:'Noto Sans JP',sans-serif; }
 .page{ display:none; } .page.active{ display:block; }
+
+.label{ display:block; font-size:.9rem; color:#334155; margin-bottom:.25rem; }
+.input,.textarea{ width:100%; padding:.6rem .8rem; border:1px solid #cbd5e1; border-radius:.5rem; }
+.section-title{ font-weight:700; color:#0f172a; margin-bottom:.5rem; }
+
+.btn-primary{ background:#4A90E2; color:#fff; } .btn-primary:hover{ background:#357ABD; }
+.btn-secondary{ background:#7ED321; color:#fff; } .btn-secondary:hover{ background:#62A81A; }
+.btn-neutral{ background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; } .btn-neutral:hover{ background:#e2e8f0; }
+
 .loading-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.6); display:flex; justify-content:center; align-items:center; z-index:9999; }
 .hidden{ display:none !important; }
-.spinner{ border:8px solid #f3f3f3; border-top:8px solid #4A90E2; border-radius:50%; width:60px; height:60px; animation: spin 1s linear infinite; }
+.spinner{ border:8px solid #f3f3f3; border-top:8px solid #4A90E2; border-radius:50%; width:60px; height:60px; animation:spin 1s linear infinite; }
 @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-.toast{ position:fixed; left:50%; bottom:20px; transform:translateX(-50%); background:#2d3748; color:#fff; padding:10px 20px; border-radius:8px; z-index:10000; opacity:0; transition:opacity .5s,bottom .5s; }
-.toast.show{ opacity:1; bottom:30px; }
+.toast{ position:fixed; left:50%; bottom:20px; transform:translateX(-50%); background:#1f2937; color:#fff; padding:10px 16px; border-radius:8px; z-index:10000; opacity:0; transition:opacity .3s,bottom .3s; }
+.toast.show{ opacity:1; bottom:32px; }
+
+/* PDF印刷モード */
 .print-mode .proposal-document{ box-shadow:none !important; border-radius:0 !important; }
 .print-mode #proposal-document{ width:794px; margin:0 auto; background:#fff; }
 .print-mode .loading-overlay{ display:none !important; }
+
+/* 提案本文の体裁 */
+.proposal-document{ background:#fff; color:#334155; }
+.proposal-header{ border-bottom:2px solid #e2e8f0; padding-bottom:1rem; margin-bottom:1.25rem; }
+.proposal-document h3{ font-size:1.1rem; font-weight:700; color:#0f172a; margin-top:1.5rem; margin-bottom:.5rem; padding-bottom:.4rem; border-bottom:1px solid #cbd5e1; }
+.proposal-document p{ line-height:1.8; margin-bottom:.6rem; }
+.proposal-document ul{ list-style:disc outside; padding-left:1.3rem; margin-bottom:1rem; }
+.proposal-document li{ margin-bottom:.35rem; line-height:1.7; }
+.proposal-document strong{ color:#0f172a; font-weight:700; }
+
